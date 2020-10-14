@@ -1,0 +1,35 @@
+img
+{
+    width: 90px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+ul{
+    margin-left: 350px;
+    font-size: 20px;
+}
+
+span
+{
+    margin-left: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+li:hover
+{
+    background-color: lightblue;
+}
+
+.circle
+{
+    width: 600px;
+    height: 600px;
+    background-color: red;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 50%;
+    margin-left: -10px;
+
+}

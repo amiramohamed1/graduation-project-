@@ -1,0 +1,104 @@
+<div class="login-wrap" id="cont">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		
+		<div class="login-form" id="content">
+			<div class="sign-in-htm">
+				<form action="post" [formGroup]="usersignin">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input" formControlName="name" [(ngModel)]="Ana.name"/>
+					<div *ngIf="name.invalid && name.touched">
+						<p *ngIf="name.errors.required">UserName is required.</p>
+					</div>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password"  formControlName="pass" [(ngModel)]="Ana.password"/>
+					<div *ngIf="pass.invalid && pass.touched">
+						<p *ngIf="pass.errors.required">PassWord is required.</p>
+					</div>
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<a><input type="submit" class="button" value="Sign In" (click)="login()"></a>
+				</div>
+				<div class="hr"></div>
+			</form>	
+			</div>
+	
+
+			<div class="sign-up-htm">
+				<form action="post" [formGroup]="userform" #formdata="ngForm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user2" name="name"  type="text" class="input" formControlName="username" [(ngModel)]="aya.name"/>
+					<div *ngIf="username.invalid && username.touched">
+						<p *ngIf="username.errors.required">UserName is required.</p>
+						<p *ngIf="username.errors.minlength">UserName must be at least {{username.errors.minlength.requiredLength}} characters.</p>
+					</div>
+				</div>			
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass2" type="password" class="input" data-type="password" formControlName="password" name="password" [(ngModel)]="aya.password"/>
+					<div *ngIf="password.invalid && password.touched">
+						<p *ngIf="password.errors.required">PassWord is required.</p>
+						<p *ngIf="password.errors.minlength">PassWord must be at least {{password.errors.minlength.requiredLength}} characters.</p>
+					</div>		
+				</div>
+				
+				<div class="group">
+					<label for="Email" class="label">Email Address</label>
+					<input id="mail" type="text" class="input" formControlName="Email" name="email" [(ngModel)]="aya.email"/>
+					<div *ngIf="Email.invalid && Email.touched">
+						<p *ngIf="Email.errors.required">Email is required.</p>
+						<p *ngIf="Email.errors.email">This is not a Email.</p>
+					</div>
+				</div>
+				
+				
+				<div class="group">
+					<label for="Address" class="label">Address</label>
+					<input id="Address" type="text" class="input" formControlName="Address" name="address" [(ngModel)]="aya.address"/>
+					<div *ngIf="Address.invalid && Address.touched">
+						<p *ngIf="Address.errors.required">Address is required.</p>
+					</div>
+				</div>
+				
+				<div class="group">
+					<label for="Nationalid" class="label">SSN</label>
+					<input id="Nationalid" type="text" class="input" formControlName="ssn" name="nationalId" [(ngModel)]="aya.nationalId"/>
+					<div *ngIf="ssn.invalid && ssn.touched">
+						<p *ngIf="ssn.errors.required">SSN is required.</p>
+						<p *ngIf="ssn.errors.pattern">SSN is must be 14 characters.</p>
+					</div>
+				</div>
+				<div class="group">
+					<label for="phone" class="label">PHONE</label>
+					<input id="phone" type="text" class="input"  formControlName="phone" name="phone" [(ngModel)]="aya.phone"/>
+					<div *ngIf="phone.invalid && phone.touched">
+						<p *ngIf="phone.errors.required">Phone Number is required.</p>
+						<p *ngIf="phone.errors.pattern">phone Number is must be 11 characters.</p>
+					</div>
+				</div>
+
+				<div class="group">
+					<label for="Organization" class="label">Choose Your Organization</label>
+					<select  id="Organization" class="input" name="branchId" formControlName="branchId" [(ngModel)]="aya.branchId" (change)="mybranch($event.target.value)">
+						<option class="input" *ngFor="let item of amira" [value]="item.id">{{item.name}}</option>
+					  </select>
+					  <div *ngIf=" branchId.invalid &&  branchId.touched">
+						<p *ngIf=" branchId.errors.required">Branch is required.</p>
+					</div>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up" (click)="register()"/>
+				</div>
+			</form>
+			</div>
+			
+</div>
